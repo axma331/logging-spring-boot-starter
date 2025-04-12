@@ -13,7 +13,7 @@
     <groupId>ru.t1.ismailov</groupId>
     <artifactId>logging-spring-boot-starter</artifactId>
     <version>1.0.0</version>
-    <name>Logging API</name>
+    <name>api.logging.spring.boot.starter</name>
     <description>Logging API methods using Spring AOP</description>
 
     <properties>
@@ -21,20 +21,11 @@
     </properties>
 
     <dependencies>
-        <!-- Spring Starter -->
+        <!-- Spring AOP -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
