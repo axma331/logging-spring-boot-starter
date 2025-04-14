@@ -1,0 +1,5 @@
+org.springframework.boot.env.EnvironmentPostProcessor=\
+  ru.t1.ismailov.logging.init.LoggingEnvPostProcessor
+
+org.springframework.boot.diagnostics.FailureAnalysis=\
+ ru.t1.ismailov.logging.analyzer.LoggingFailureAnalyzer

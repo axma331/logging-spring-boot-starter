@@ -1,0 +1,4 @@
+api:
+  logging-starter:
+    enabled: false
+    level: INFO
