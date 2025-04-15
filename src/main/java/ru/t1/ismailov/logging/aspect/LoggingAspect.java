@@ -31,16 +31,13 @@ public class LoggingAspect {
     @Before("@annotation(ru.t1.ismailov.logging.annotation.Loggable)" +
             " || @within(ru.t1.ismailov.logging.annotation.Loggable)")
     public void logBefore(JoinPoint jp) {
-        System.out.println("Before method: " + jp.getSignature().getName());
         logMessage("Processing " + getClassAndMethodName(jp) + " with args: " + Arrays.toString(jp.getArgs()));
     }
 
 
     @AfterReturning(pointcut = "@annotation(ru.t1.ismailov.logging.annotation.Loggable)", returning = "result")
     public void logAfterReturningServiceMethod(JoinPoint jp, Object result) {
-        log.info("Method {} executed successfully with result: {}",
-                getClassAndMethodName(jp),
-                result);
+        logMessage("Method " + getClassAndMethodName(jp) + " executed successfully with result: " + result);
     }
 
     @Around("@annotation(ru.t1.ismailov.logging.annotation.MeasureExecutionTime)")

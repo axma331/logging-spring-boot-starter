@@ -12,8 +12,6 @@
 -  Настройка включения/отключения логирования
 -  Настройка уровня логирования: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`
 -  Поддержка конфигурации через `application.properties` или `application.yml`
--  Валидация значений конфигурации при старте приложения
--  Анализ ошибок конфигурации через `FailureAnalyzer`
 
 ---
 
@@ -80,24 +78,11 @@ public void calculateSomethingHeavy() { ... }
 - `LoggingAspect` — аспект логирования
 - `LoggingProperties` — бин с настройками логирования
 - `LoggingAutoConfiguration` — автоматическая конфигурация
-- `LoggingEnvPostProcessor` — загрузка default.yml и валидация конфигурации
-- `LoggingFailureAnalyzer` — удобное описание ошибок конфигурации
 - Аннотации: `@Loggable`, `@MeasureExecutionTime`
-- Конфигурация по умолчанию: `src/main/resources/default.yml`
 
 ---
 
 ## 📄 Конфигурационные файлы
-
-### `META-INF/spring.factories`
-
-```properties
-org.springframework.boot.env.EnvironmentPostProcessor=\
-  ru.t1.ismailov.logging.init.LoggingEnvPostProcessor
-
-org.springframework.boot.diagnostics.FailureAnalyzer=\
-  ru.t1.ismailov.logging.analyzer.LoggingFailureAnalyzer
-```
 
 ### `META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`
 
@@ -106,14 +91,7 @@ ru.t1.ismailov.logging.config.LoggingAutoConfiguration
 ```
 
 ---
-
-## ❗ Примечания
-
-- Логирование активируется только при `api.logging-starter.enabled=true`.
-- При передаче неверных значений (например, `api.logging-starter.level=verbose`) стартер выбрасывает `LoggingStartupException`.
-
----
 ## Требования
 
 - Java 17+
-- Spring Boot 3.1.5+
+- Spring Boot 3
