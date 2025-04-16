@@ -1,7 +1,6 @@
 package ru.t1.ismailov.logging.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -22,7 +21,6 @@ public class LoggingAutoConfiguration {
     }
 
     @Bean
-    @ConditionalOnMissingBean
     public LoggingAspect loggingAspect() {
         return new LoggingAspect(properties);
     }
